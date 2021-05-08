@@ -1,23 +1,24 @@
-#include "SDL.h"
+#include "Game.hpp"
+
+
+Game* game = nullptr;
 
 int main(int argc, char* argv[])
 {
-	//Sets up the window and the renderer
-	SDL_Init(SDL_INIT_EVERYTHING);
-	SDL_Window* window = SDL_CreateWindow("Title", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 600, 400, SDL_WINDOW_SHOWN);
-	SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, 0);
+
+	game = new Game();
+
+	game->init("Crossy Cat", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 600, true);
 	
-	//Sets the rendered window to green
-	SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
+	while (game->running())
+	{
+		game->handleEvents();
+		game->update();
+		game->render();
 
-	//Clears the renderer
-	SDL_RenderClear(renderer);
+	}
 
-	//Shows the rendered screen
-	SDL_RenderPresent(renderer);
-
-	//Delays SDL's output
-	SDL_Delay(3000);
+	game->clean();
 
 	return 0;
 }
