@@ -1,9 +1,10 @@
 
-#ifndef Game_hpp
-#define Game_hpp
+#ifndef Game_h
+#define Game_h
 #define SDL_MAIN_HANDLED
 
 #include "SDL.h"
+#include "SDL_image.h"
 #include <iostream>
 
 class Game {
@@ -29,4 +30,4 @@ private:
 };
 
 
-#endif /* Game_hpp */
+#endif /* Game_h */
