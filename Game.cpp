@@ -1,8 +1,9 @@
 #include "Game.h"
 #include "TextureManager.h"
+#include "GameObject.h"
 
-SDL_Texture* playerTex;
-SDL_Rect srcR, destR;
+//Add Game Objects here
+GameObject* player;
 
 Game::Game()
 {}
@@ -21,24 +22,28 @@ void Game::init(const char *title, int xpos, int ypos, int width, int height, bo
 
 		std::cout << "Subsystems Initialised!..." << std::endl;
 
+		//Creates the SDL Window
 		window = SDL_CreateWindow(title, xpos, ypos, width, height, flags);
 		if (window)
 		{
 			std::cout << "Window Created!" << std::endl;
 		}
 
+		//Creates the SDL Renderer
 		renderer = SDL_CreateRenderer(window, -1, 0);
 		if (renderer)
 		{
+			//Sets the renderer colour to white
 			SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
 			std::cout << "Renderer Created!" << std::endl;
 		}
 
+		//Starts the game loop
 		isRunning = true;
 	}
 
-	playerTex = TextureManager::LoadTexture("assets/player.png", renderer);
-
+	//Add Game Object textures here
+	player = new GameObject("assets/player.png", renderer, 0, 0);
 }
 
 void Game::handleEvents()
@@ -48,6 +53,7 @@ void Game::handleEvents()
 	switch (event.type)
 	{
 	case SDL_QUIT:
+		//If the game is quit, stop the game loop
 		isRunning = false;
 		break;
 	default:
@@ -57,23 +63,23 @@ void Game::handleEvents()
 
 void Game::update()
 {
-	cnt++;
-	destR.h = 64;
-	destR.w = 64;
-	destR.x = cnt;
-
-	std::cout << cnt << std::endl;
+	//Updates the player object
+	player->Update();
 }
 
 void Game::render()
 {
 	SDL_RenderClear(renderer);
-	SDL_RenderCopy(renderer, playerTex, NULL, &destR);
+
+	//Render all game objects here
+	player->Render();
+
 	SDL_RenderPresent(renderer);
 }
 
 void Game::clean()
 {
+	//Cleans up memory when the game exits
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
 	SDL_Quit();
