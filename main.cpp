@@ -16,7 +16,7 @@ int main(int argc, char* argv[])
 	game = new Game();
 
 	//Initialises the game window
-	game->init("Crossy Cat", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 600, false);
+	game->init("Crossy Cat", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 640, false);
 	
 	//Runs while the game is running
 	while (game->running())

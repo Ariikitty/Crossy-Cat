@@ -1,13 +1,10 @@
-
-#ifndef Game_h
-#define Game_h
-#define SDL_MAIN_HANDLED
-
+#pragma once
 #include "SDL.h"
 #include "SDL_image.h"
 #include <iostream>
 
-class Game {
+class Game 
+{
 
 public:
 	Game();
@@ -22,12 +19,10 @@ public:
 
 	bool running() { return isRunning; }
 
+	static SDL_Renderer *renderer;
+
 private:
 	int cnt = 0;
 	bool isRunning;
 	SDL_Window* window;
-	SDL_Renderer *renderer;
 };
-
-
-#endif /* Game_h */

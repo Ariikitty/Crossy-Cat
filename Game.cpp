@@ -1,9 +1,13 @@
 #include "Game.h"
 #include "TextureManager.h"
 #include "GameObject.h"
+#include "Map.h"
 
 //Add Game Objects here
 GameObject* player;
+Map* map;
+
+SDL_Renderer* Game::renderer = nullptr;
 
 Game::Game()
 {}
@@ -43,7 +47,8 @@ void Game::init(const char *title, int xpos, int ypos, int width, int height, bo
 	}
 
 	//Add Game Object textures here
-	player = new GameObject("assets/player.png", renderer, 0, 0);
+	player = new GameObject("assets/player.png", 0, 0);
+	map = new Map();
 }
 
 void Game::handleEvents()
@@ -70,6 +75,9 @@ void Game::update()
 void Game::render()
 {
 	SDL_RenderClear(renderer);
+
+	//Render level here
+	map->DrawMap();
 
 	//Render all game objects here
 	player->Render();
