@@ -2,6 +2,7 @@
 #include "TextureManager.h"
 #include "Map.h"
 #include "Components.h"
+#include "Vector2D.h"
 
 //Add Game Objects here
 Map* map;
@@ -51,7 +52,7 @@ void Game::init(const char *title, int xpos, int ypos, int width, int height, bo
 	//Add Game Object textures here
 	map = new Map();
 
-	player.addComponent<PositionComponent>();
+	player.addComponent<TransformComponent>();
 	player.addComponent<SpriteComponent>("assets/Player.png");
 }
 
@@ -74,6 +75,12 @@ void Game::update()
 {
 	//Updates the player object
 	manager.update();
+	player.getComponent<TransformComponent>().position.Add(Vector2D(5, 0));
+
+	if (player.getComponent<TransformComponent>().position.x > 100)
+	{
+		player.getComponent<SpriteComponent>().setTex("assets/playerBack1.png");
+	}
 }
 
 void Game::render()
