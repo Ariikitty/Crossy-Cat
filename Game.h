@@ -1,4 +1,5 @@
 #pragma once
+
 #include "SDL.h"
 #include "SDL_image.h"
 #include <iostream>
@@ -20,6 +21,7 @@ public:
 	bool running() { return isRunning; }
 
 	static SDL_Renderer *renderer;
+	static SDL_Event event;
 
 private:
 	int cnt = 0;
