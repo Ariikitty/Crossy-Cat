@@ -74,8 +74,11 @@
     <ClInclude Include="ColliderComponenet.h">
       <Filter>Header Files\ECS</Filter>
     </ClInclude>
+    <ClInclude Include="TileComponent.h">
+      <Filter>Header Files\ECS</Filter>
+    </ClInclude>
     <ClInclude Include="Collision.h">
-      <Filter>Source Files</Filter>
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

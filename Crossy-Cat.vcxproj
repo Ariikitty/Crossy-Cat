@@ -169,6 +169,7 @@
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="KeyboardController.h" />
     <ClInclude Include="Map.h" />
+    <ClInclude Include="TileComponent.h" />
     <ClInclude Include="TransformComponent.h" />
     <ClInclude Include="SpriteComponent.h" />
     <ClInclude Include="Vector2D.h" />
