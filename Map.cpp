@@ -39,6 +39,13 @@ Map::Map()
 	dest.x = dest.y = 0;
 }
 
+Map::~Map()
+{
+	SDL_DestroyTexture(track);
+	SDL_DestroyTexture(road);
+	SDL_DestroyTexture(house);
+}
+
 void Map::LoadMap(int arr[20][25])
 {
 	for (int row = 0; row < 20; row++)
