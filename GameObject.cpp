@@ -19,8 +19,8 @@ void GameObject::Update()
 	ypos++;
 
 	//Set's the sprite's width, height and starting point
-	srcRect.h = 32;
-	srcRect.w = 32;
+	srcRect.h = 64;
+	srcRect.w = 64;
 	srcRect.x = 0;
 	srcRect.y = 0;
 

@@ -73,15 +73,15 @@ void Game::init(const char *title, int xpos, int ypos, int width, int height, bo
 	Map::LoadMap("assets/main.map", 13, 10);
 
 	//Adds the player's components
-	player.addComponent<TransformComponent>(2);
-	player.addComponent<SpriteComponent>("assets/Player.png");
+	player.addComponent<TransformComponent>(1);
+	player.addComponent<SpriteComponent>("assets/playerFront.png", 2, 250);
 	player.addComponent<KeyboardController>();
 	player.addComponent<ColliderComponent>("player");
 	player.addGroup(groupPlayers);
 
 	//Adds the wall's components
 	wall.addComponent<TransformComponent>(300.0f, 300.0f, 300, 20, 1);
-	wall.addComponent <SpriteComponent>("assets/playerFront2.png");
+	wall.addComponent <SpriteComponent>("assets/Player.png");
 	wall.addComponent<ColliderComponent>("wall");
 	wall.addGroup(groupMap);
 }
