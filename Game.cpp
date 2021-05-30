@@ -74,7 +74,7 @@ void Game::init(const char *title, int xpos, int ypos, int width, int height, bo
 
 	//Adds the player's components
 	player.addComponent<TransformComponent>(1);
-	player.addComponent<SpriteComponent>("assets/playerFront.png", 2, 250);
+	player.addComponent<SpriteComponent>("assets/cat.png", true);
 	player.addComponent<KeyboardController>();
 	player.addComponent<ColliderComponent>("player");
 	player.addGroup(groupPlayers);
