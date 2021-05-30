@@ -100,6 +100,16 @@ Vector2D& Vector2D::Zero()
 	return *this;
 }
 
+Vector2D& Vector2D::Normalize()
+{
+	float length = sqrt((this->x * this->x) + (this->y * this->y));
+
+	this->x /= length;
+	this->y /= length;
+
+	return *this;
+}
+
 std::ostream& operator<<(std::ostream& stream, const Vector2D& vec)
 {
 	stream << "(" << vec.x << "," << vec.y << ")";
