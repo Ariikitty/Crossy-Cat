@@ -22,10 +22,17 @@ public:
 	void render();
 	void clean();
 
-	static void AddTile(int srcX, int srcY, int xpos, int ypos);
 	static SDL_Renderer *renderer;
 	static SDL_Event event;
-	static std::vector<ColliderComponent*> colliders;
+
+	//Creates the layers for the game
+	enum groupLabels : std::size_t
+	{
+		groupMap,
+		groupPlayers,
+		groupObjects,
+		groupColliders
+	};
 
 private:
 	int cnt = 0;
