@@ -7,8 +7,8 @@
 class KeyboardController : public Component
 {
 public:
-	TransformComponent* transform;
-	SpriteComponent* sprite;
+	TransformComponent* transform = nullptr;
+	SpriteComponent* sprite = nullptr;
 
 	void init() override
 	{

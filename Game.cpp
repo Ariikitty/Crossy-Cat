@@ -16,7 +16,8 @@ std::vector<ColliderComponent*> Game::colliders;
 
 //Creating entities
 auto& player(manager.addEntity()); 
-auto& wall(manager.addEntity());
+
+const char* mapfile = "assets/main_ss.png";
 
 //Creates the layers for the game
 enum groupLabels : std::size_t
@@ -78,12 +79,6 @@ void Game::init(const char *title, int xpos, int ypos, int width, int height, bo
 	player.addComponent<KeyboardController>();
 	player.addComponent<ColliderComponent>("player");
 	player.addGroup(groupPlayers);
-
-	//Adds the wall's components
-	wall.addComponent<TransformComponent>(300.0f, 300.0f, 300, 20, 1);
-	wall.addComponent <SpriteComponent>("assets/Player.png");
-	wall.addComponent<ColliderComponent>("wall");
-	wall.addGroup(groupMap);
 }
 
 void Game::handleEvents()
@@ -151,9 +146,9 @@ void Game::clean()
 	std::cout << "Game Cleaned" << std::endl;
 }
 
-void Game::AddTile(int id, int x, int y)
+void Game::AddTile(int srcX, int srcY, int xpos, int ypos)
 {	
 	auto& tile(manager.addEntity());
-	tile.addComponent<TileComponenet>(x, y, 64, 64, id);
+	tile.addComponent<TileComponenet>(srcX, srcY, xpos, ypos, mapfile);
 	tile.addGroup(groupMap);
 }
