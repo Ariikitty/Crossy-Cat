@@ -6,3 +6,4 @@
 #include "KeyboardController.h"
 #include "ColliderComponenet.h"
 #include "TileComponent.h"
+#include "ProjectileComponent.h"

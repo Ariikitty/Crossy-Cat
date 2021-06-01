@@ -1,9 +1,9 @@
 #pragma once
 
 #include "ECS.h"
-#include "TransformComponent.h"
-#include "SpriteComponent.h"
-#include "SDL.h"
+#include "Vector2D.h"
+#include "Game.h"
+#include "TextureManager.h"
 
 class TileComponenet : public Component
 {
@@ -19,9 +19,9 @@ public:
 		SDL_DestroyTexture(texture);
 	}
 
-	TileComponenet(int srcX, int srcY, int xpos, int ypos, int tsize, int tscale, const char* path)
+	TileComponenet(int srcX, int srcY, int xpos, int ypos, int tsize, int tscale, std::string id)
 	{
-		texture = TextureManager::LoadTexture(path);
+		texture = Game::assets->GetTexture(id);
 
 		srcRect.x = srcX;
 		srcRect.y = srcY;
